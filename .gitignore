@@ -11,3 +11,4 @@ examples/fortran/basic_usage/basic_usage_autotune
 examples/fortran/poisson/poisson
 tests/cc/*_test_*
 tests/fortran/*_test_*
+configs/nvhpcsdk.conf
