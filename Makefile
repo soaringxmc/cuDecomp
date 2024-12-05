@@ -1,7 +1,7 @@
 # Update this CONFIGFILE for your system or use command 'make CONFIGFILE=<path to your config file>'
 PWD=$(shell pwd)
 CONFIGFILE=${PWD}/configs/nvhpcsdk.conf
-include ${CONFIGFILE}
+-include ${CONFIGFILE}
 
 MPICXX ?= ${MPI_HOME}/bin/mpicxx
 MPIF90 ?= ${MPI_HOME}/bin/mpif90
@@ -120,3 +120,8 @@ clean:
 	cd ${TESTDIR}; make clean
 	cd ${BENCHMARKDIR}; make clean
 	cd ${EXAMPLEDIR}; make clean
+
+# Rules to generate config files if missing
+${CONFIGFILE}:
+	@echo "Generating ${CONFIGFILE} from ${PWD}/configs/nvhpcsdk_example.conf..."
+	cp ${PWD}/configs/nvhpcsdk_example.conf ${CONFIGFILE}
